@@ -1,0 +1,31 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Bookshout - Git API Project"
+    = stylesheet_link_tag    "application"
+    = csrf_meta_tags
+    = javascript_include_tag "application"
+  %body
+    / header
+    %header#header.navbar.navbar-sm.bg.bg-lighter
+      - if current_user
+        %a.btn.btn-link.pull-right{:href => "#"}
+          %i.icon-question.icon-xlarge.text-default
+      %a.navbar-brand{:href => "/"}
+        %img{:border => "0", :height => "21", :src => "/assets/logo.png"}/
+    / / header
+    / nav
+    / / nav
+    %section#content
+      = yield
+    / footer
+    %footer#footer
+      .text-center.padder.clearfix
+        /
+          <p>
+          <small>© ITALKRAFT 2013, OrderTracker</small>
+          </p>
+    / / footer
+    

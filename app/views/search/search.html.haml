@@ -1,0 +1,89 @@
+.row
+  %br
+.row
+  .col.col-lg-2
+  .col.col-lg-8
+    %section.panel
+      %header.panel-heading
+        %form
+          .input-group.text-small
+            %input.input-small{:placeholder => "Search Repositories", :type => "text", name: "q", value: params[:q], autocapitalize: :off, autocomplete: :off, spellcheck: false}/
+            .input-group-btn
+              %button.btn.btn-small.btn-white Search
+            
+      - unless @searched
+        .text-center.text-large
+          %i.icon-search
+          Search Github's Repositories
+      - else
+        %header.panel-heading
+          .input-group.text-small
+            .h4
+              We've found 2,300 repository results
+            .input-group-btn
+              %button.btn.btn-small.btn-white.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                Language: All
+                %span.caret
+              %ul.dropdown-menu.pull-right.text-right
+                %li
+                  %a{href: url_for(params.merge(l: :all))} 
+                    %i.icon-check-sign
+                    All
+                %li
+                  %a{href: url_for(params.merge(l: "Ruby"))} 
+                    Ruby
+                %li
+                  %a{href: url_for(params.merge(l: "PHP"))} 
+                    PHP
+                %li
+                  %a{href: url_for(params.merge(l: "Python"))} 
+                    Python
+            .input-group-btn
+              %button.btn.btn-small.btn-white.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                Sort: Best match
+                %span.caret
+              %ul.dropdown-menu.pull-right.text-right
+                %li
+                  %a{href: url_for(params.merge(o: :desc, s: :match))}
+                    %i.icon-check-sign
+                    Best match
+                %li
+                  %a{href: url_for(params.merge(o: :desc, s: :stars))} 
+                    Most stars
+                %li
+                  %a{href: url_for(params.merge(o: :asc, s: :stars))} 
+                    Fewest stars
+        %ul.list-group.list-group-flush.m-t-n
+          %li.list-group-item
+            .media
+              %span.pull-left.thumb-small
+                PHP
+              .pull-right.text-success.m-t-small
+                %i.icon-star 137
+              .media-body
+                %div
+                  %a.h5{:href => "#"} shadowhand/pagination
+                %small.text-muted A Kohana module for pagination
+                %br
+                %small.text-muted Updated on Sep 3, 2013
+        %footer.panel-footer
+          .row
+            .col.col-lg-4
+            .col.col-lg-4.text-center
+              %small.text-muted.inline.m-t-small.m-b-small
+                showing 20-30 of 50
+            .col.col-lg-4.text-right.text-center-sm
+              %ul.pagination.pagination-small.m-t-none.m-b-none
+                %li
+                  %a{href: "#"}
+                    %i.icon-chevron-left
+                %li
+                  %a{href: "#"} 1
+                %li
+                  %a{href: "#"} 2
+                %li
+                  %a{href: "#"} 3
+                %li
+                  %a{href: "#"}
+                    %i.icon-chevron-right
+  .col.col-lg-2
