@@ -21,6 +21,7 @@ gem 'twitter-bootstrap-rails'
 gem 'omniauth-github'
 gem 'github_api'
 gem 'will_paginate-bootstrap'
+gem 'annotate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
