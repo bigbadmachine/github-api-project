@@ -19,6 +19,7 @@ gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails'
 
 gem 'omniauth-github'
+gem 'github_api'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -34,4 +34,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ENV['GITHUB_KEY'] = "7ce2c9d36b3d0dbcffa0"
+  ENV['GITHUB_SECRET'] = "ca6fd9cd56d012a481db74f1a1c090ba163c7aeb"
 end

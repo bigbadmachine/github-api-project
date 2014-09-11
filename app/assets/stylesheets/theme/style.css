@@ -190,6 +190,7 @@ a.list-group-item:hover, a.list-group-item:focus {background-color: #f1f5f9;}
 .text-default{color: #a5b6c7;}
 .text-danger{color: #ff5f5f}
 .text-primary{color: #13c4a5}
+.text-grey{color: #657483}
 
 .btn{
   color: #fff;

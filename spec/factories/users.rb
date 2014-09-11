@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
+    name "User Name"
     uid 1
   end
 end

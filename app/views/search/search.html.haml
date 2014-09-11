@@ -18,54 +18,85 @@
       - else
         %header.panel-heading
           .input-group.text-small
-            .h4
-              We've found 2,300 repository results
+            .h4= "We've found #{@response.total_count.inspect} repository results"
             .input-group-btn
               %button.btn.btn-small.btn-white.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-                Language: All
+                = "Language: #{(params[:l]=="any" || params[:l].blank?) ? "Any" : params[:l]}"
                 %span.caret
               %ul.dropdown-menu.pull-right.text-right
+                - languages = ["ActionScript",
+                               "C",
+                               "C#",
+                               "C++",
+                               "Clojure",
+                               "CoffeeScript", 
+                               "Common Lisp",
+                               "CSS",
+                               "Diff",
+                               "Emacs Lisp",
+                               "Erlang",
+                               "Haskell",
+                               "HTML",
+                               "Java",
+                               "JavaScript",
+                               "Lua",
+                               "Objective-C",
+                               "Perl",
+                               "PHP",
+                               "Python",
+                               "Ruby",
+                               "Scala",
+                               "Scheme",
+                               "SQL" ]
+
                 %li
-                  %a{href: url_for(params.merge(l: :all))} 
-                    %i.icon-check-sign
-                    All
-                %li
-                  %a{href: url_for(params.merge(l: "Ruby"))} 
-                    Ruby
-                %li
-                  %a{href: url_for(params.merge(l: "PHP"))} 
-                    PHP
-                %li
-                  %a{href: url_for(params.merge(l: "Python"))} 
-                    Python
+                  %a{href: url_for(params.merge(l: :any))} 
+                    - if params[:l] == "any" || params[:l].blank?
+                      %i.icon-check-sign
+                    Any
+                - languages.each do |language|
+                  %li
+                    %a{href: url_for(params.merge(l: language))}
+                      - if params[:l] == language
+                        %i.icon-check-sign
+                      = language
+
+            - sort_by = params[:s]=="stars" ? (params[:o]=="asc" ? "Fewest stars" : "Most stars") : "Best match"
             .input-group-btn
               %button.btn.btn-small.btn-white.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-                Sort: Best match
+                = "Sort: #{sort_by}"
                 %span.caret
               %ul.dropdown-menu.pull-right.text-right
                 %li
                   %a{href: url_for(params.merge(o: :desc, s: :match))}
-                    %i.icon-check-sign
+                    - unless params[:s]=="stars"
+                      %i.icon-check-sign
                     Best match
                 %li
                   %a{href: url_for(params.merge(o: :desc, s: :stars))} 
+                    - if params[:s]=="stars" && params[:o]!="asc"
+                      %i.icon-check-sign
                     Most stars
                 %li
                   %a{href: url_for(params.merge(o: :asc, s: :stars))} 
+                    - if params[:s]=="stars" && params[:o]=="asc"
+                      %i.icon-check-sign
                     Fewest stars
         %ul.list-group.list-group-flush.m-t-n
-          %li.list-group-item
-            .media
-              %span.pull-left.thumb-small
-                PHP
-              .pull-right.text-success.m-t-small
-                %i.icon-star 137
-              .media-body
-                %div
-                  %a.h5{:href => "#"} shadowhand/pagination
-                %small.text-muted A Kohana module for pagination
-                %br
-                %small.text-muted Updated on Sep 3, 2013
+          - @results.each do |result|
+            %li.list-group-item
+              .media
+                .pull-right.text-grey.m-t-small
+                  .pull-left
+                    = result.language
+                  %i.icon-star.text-success= result.stargazers_count
+                .media-body
+                  %div
+                    %a.h4{:href => result.html_url, target: "_blank"}= result.full_name
+                  - unless result.description.blank?
+                    %small.text-muted= result.description
+                    %br
+                  %small.text-muted= "Updated #{time_ago_in_words(result.updated_at)} ago"
         %footer.panel-footer
           .row
             .col.col-lg-4
