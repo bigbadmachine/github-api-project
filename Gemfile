@@ -48,6 +48,8 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout', group: :production
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets', group: :production
 
 gem 'brakeman', :require => false
 gem 'rspec-rails' # rails g rspec:install
