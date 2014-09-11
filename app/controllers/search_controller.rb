@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
-
+	before_filter :require_login
+	
 	def search
 		@searched = false
 		@results = []

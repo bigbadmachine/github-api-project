@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'search' => 'search#search'
 
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  get 'auth/failure', to: 'sessions#failure'
+  get 'logout', to: 'sessions#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
