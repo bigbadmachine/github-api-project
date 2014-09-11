@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'search' => 'search#search'
 
+  resources :sessions, only: [:create, :destroy]
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get 'auth/failure', to: 'sessions#failure'
   get 'logout', to: 'sessions#destroy'

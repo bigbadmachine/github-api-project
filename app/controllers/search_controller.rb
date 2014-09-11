@@ -10,8 +10,11 @@ class SearchController < ApplicationController
 			@response = github_client.repos search_options
 			items = @response.body.items
 			
+			# Gituhb API only returns 1000 records max
+			total_count = @response.total_count>1000 ? 1000 : @response.total_count
+			
 			# Pagination
-			@results = WillPaginate::Collection.create(current_page, items.count, @response.total_count) do |pager|
+			@results = WillPaginate::Collection.create(current_page, items.count, total_count) do |pager|
 			   pager.replace(items)
 			end
 

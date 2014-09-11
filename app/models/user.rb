@@ -15,12 +15,11 @@
 
 class User < ActiveRecord::Base
 
+	before_save { generate_token(:auth_token) }
 	validates_presence_of :name, :uid
 
-	before_save { generate_token(:auth_token) }
-
 	def self.update_or_create_with_omniauth(auth_hash)
-		if (user = User.where(uid: auth_hash.info.uid).first rescue nil)
+		if (user = User.where(uid: auth_hash.uid).first rescue nil)
 			user.oauth_token = auth_hash.credentials.token
 			user.oauth_expires_at = (Time.at(auth_hash.credentials.expires_at) rescue nil)
 		else

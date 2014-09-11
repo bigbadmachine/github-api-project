@@ -38,7 +38,9 @@ class ApplicationController < ActionController::Base
       if !logged_in?
         store_location
         redirect_to root_url
+        return false
       end
+      return true
     end
 
     def require_no_login

@@ -49,13 +49,11 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
-group :development do
-  gem 'brakeman', :require => false
-  gem 'rspec-rails' # rails g rspec:install
-	gem 'factory_girl_rails' # touch spec/factories.rb
-	gem 'capybara'
-	gem 'launchy'
-	gem "quiet_assets", ">= 1.0.1"
-	gem "binding_of_caller"
-	gem "better_errors", ">= 0.3.2"
-end
+gem 'brakeman', :require => false
+gem 'rspec-rails' # rails g rspec:install
+gem 'factory_girl_rails' # touch spec/factories.rb
+gem 'capybara'
+gem 'launchy'
+gem "quiet_assets", ">= 1.0.1"
+gem "binding_of_caller"
+gem "better_errors", ">= 0.3.2"
