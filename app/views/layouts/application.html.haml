@@ -17,16 +17,19 @@
       %a.navbar-brand{:href => "/"}
         %img{:border => "0", :height => "21", :src => "/assets/logo.png"}/
     / / header
-    / nav
-    / / nav
-    %section#content
-      = yield
+    
+    #wrap
+      %section#content
+        = yield
+    
+    
     / footer
     %footer#footer
       .text-center.padder.clearfix
-        /
-          <p>
-          <small>© ITALKRAFT 2013, OrderTracker</small>
-          </p>
+        %p
+          %small
+            Developed by 
+            = link_to "Scott Shervington", "mailto:scott@bigbadmachine.com", target: "_top"
+            for Bookshout
     / / footer
     

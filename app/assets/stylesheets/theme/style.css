@@ -4,6 +4,12 @@ body:before { content:'.'; display:block; height:0; clear:both; visibility:hidde
 a{color:#3a5a7a}
 a:hover, a:focus{text-decoration:none;}
 
+html,body {height: 100%;}
+#wrap {min-height: 80%;}
+#content {overflow: none; padding-bottom: 0;}
+#footer {position: relative; margin-top: -50px; height: 50px; clear: both; padding-top: 20px;}
+
+
 .margin-left-30{margin-left: 30px;}
 .padding-left-15{padding-left: 15px;}
 .no-decoration{text-decoration:none;}
