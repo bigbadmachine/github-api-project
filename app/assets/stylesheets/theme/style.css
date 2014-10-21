@@ -399,9 +399,9 @@ input[type="text"], select, textarea{min-width: 40px;height: auto;}
 /* Site CSS */
 /* Header */
 .navbar{border-bottom: 1px solid #d1d4d7;box-shadow:0 0 5px rgba(0,0,0,.1);z-index: 1010;border-radius: 0;padding:0;margin-bottom: 0}
-.navbar.bg{border-bottom: 1px solid #162636;}
+.navbar.bg{border-bottom: 1px solid #162636; background-color: #fff;}
 .navbar-brand{font-size: 28px;line-height:44px;font-family: "Times New Roman", Georgia, serif;font-style: italic;font-weight: 700;padding:0;}
-.navbar-brand img{max-height: 50px; margin-left: 10px; margin-right: 10px; margin-top: 10px;}
+.navbar-brand img{max-height: 50px; margin-left: 10px; margin-right: 10px; margin-top: 0px;}
 .navbar-brand, .navbar-brand:hover, .navbar-brand:focus{color: #22baa0;}
 .navbar-form{position: relative;margin: 10px}
 .navbar-form input[type="text"]{border-radius: 17px;font-weight: 700;text-indent: 1.5em;}

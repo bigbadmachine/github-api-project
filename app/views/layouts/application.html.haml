@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title= content_for?(:title) ? yield(:title) : "Bookshout - Git API Project"
+    %title= content_for?(:title) ? yield(:title) : "Scott Shervington - Github API Project"
     = stylesheet_link_tag    "application"
     = csrf_meta_tags
     = javascript_include_tag "application"
@@ -30,10 +30,9 @@
           %small
             Developed by 
             = link_to "Scott Shervington", "mailto:scott@bigbadmachine.com", target: "_top"
-            for Bookshout
         %p
           %small
-            = link_to "https://github.com/bigbadmachine/bookshout-project", "https://github.com/bigbadmachine/bookshout-project", target: "_blank"
+            = link_to "https://github.com/bigbadmachine/github-api-project", "https://github.com/bigbadmachine/github-api-project", target: "_blank"
             
     / / footer
     
